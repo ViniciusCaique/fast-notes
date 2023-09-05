@@ -12,7 +12,7 @@ export function Home({ navigation }) {
 
     const [ notes, setNotes ] = useState([])
 
-    const { getItem, setItem } = useAsyncStorage('@notes')
+    const { getItem, setItem, } = useAsyncStorage('@notes')
 
     async function getNotes() {
         const res = await getItem()

@@ -24,10 +24,20 @@ export function NoteView({ route }) {
 
 
     return(
-        <View>
-            <Text>Nota</Text>
-            <Text>{item.title}</Text>
-            <Text>{item.content}</Text>
+        <View
+            style={{ flex: 1, alignItems: "center", justifyContent: "center", }}
+        >
+            <View
+                style={{ borderWidth: 1, borderRadius: 8, borderColor: 'black', padding: 16 }}
+            >
+                <Text
+                    style={{ fontWeight: "bold", fontSize: 25}}
+                >Nota</Text>
+                <Text
+                    style={{ fontWeight: "700", fontSize: 18}}
+                >{item.title}</Text>
+                <Text>{item.content}</Text>
+            </View>
         </View>
 
     )

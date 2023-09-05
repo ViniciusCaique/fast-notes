@@ -27,9 +27,10 @@ export function Note(){
 
             const res = await getItem()
             const previousData = res ? JSON.parse(res) : []
-            const data = [...previousData, newNote]
-            await setItem(JSON.stringify(data))
-            // console.log(data)
+            // const data = [...previousData, newNote]
+            previousData.push(newNote)
+            await setItem(JSON.stringify(previousData))
+
             setTitle('')
             setContent('')
         } catch (error) {
@@ -52,15 +53,17 @@ export function Note(){
                 <Text>Nota</Text>
                 <Text>Titulo</Text>
                 <TextInput
-                    style={{ color: 'white', width: 200, borderWidth: 1, borderStyle: "solid", borderColor: '#000000', borderRadius: 5 , borderRadius: 10, padding: 4 }}
+                    style={{ width: 200, borderWidth: 1, borderStyle: "solid", borderColor: '#000000', borderRadius: 5 , borderRadius: 10, padding: 4 }}
                     placeholder='Titulo'
                     onChangeText={setTitle}
+                    value={title}
                 />
                 <Text>Conteúdo</Text>
                 <TextInput 
-                    style={{ color: 'white', width: 200, borderWidth: 1, borderStyle: "solid", borderColor: '#000000', borderRadius: 10, marginBottom: 5 ,padding: 4 }}
+                    style={{ width: 200, borderWidth: 1, borderStyle: "solid", borderColor: '#000000', borderRadius: 10, marginBottom: 5 ,padding: 4 }}
                     placeholder='Conteudo'
                     onChangeText={setContent}
+                    value={content}
                 />
                 <TouchableOpacity
                     style={{ borderWidth: 2, borderRadius: 6, borderColor: 'black', padding: 4}}
